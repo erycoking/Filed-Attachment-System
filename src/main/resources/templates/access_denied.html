@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Access denied</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row" style="margin-top: 10%">
+        <div class="card col-md-6 offset-md-3 home-main-panel">
+
+            <div class="card-body">
+                <div class=" justify-content-center">
+                   <span > Access denied</span> <br />
+                    <span><a href="/" th:href="@{/}">Back to Home</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="template :: footer"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

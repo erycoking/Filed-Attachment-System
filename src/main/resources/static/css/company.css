@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300,500,700");
+
+*{
+    padding: 0;
+    margin: 0 auto;
+    
+}
+.container{  
+  margin-top: 10%;
+  
+}
+.box{
+max-width: 100%;
+padding: 30px 38px 30px; 
+margin: 0 auto;
+background-color: #F5FFFA;
+border: 3px dotted rgba(0,0,0,0.1); 
+position: relative;
+}
+
+p:nth-child(1){
+   background-color: #F5FFFA;
+   clear: right;
+   border-radius: 5px;
+   font-family:   'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   size: 20px;
+  
+}
+
+.list-group{
+    margin-bottom: 10px;
+    
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    width:50%;
+}
+
+  
+
+
+

@@ -1,0 +1,30 @@
+body{
+    min-height: 100vh;
+    position: relative;
+    background-image: url("../img/ega.jpg");
+    background-position: center;
+    background-clip: content-box;
+    background-size: cover;
+}
+
+
+/*Home page color theme setting*/
+/*.home-main-panel{*/
+    /*background-color: #F0F8FF;*/
+
+/*}*/
+
+/*.login{
+    !*margin-top: 5rem;*!
+    background-image: url("../img/ega.jpg");
+    background-position: center;
+    background-clip: content-box;
+}*/
+
+.main-panel{
+    margin-top: 20rem;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.8);
+    /*opacity: 0.8;*/
+}
+

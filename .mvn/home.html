@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Company home</title>  
+  <link rel="stylesheet" href="/css/register.css" th:href="@{/css/register.css}" />
+  <link  href="/css/fv.cs" th:href="@{/css/fv.css}" rel="stylesheet" />
+  <link  href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous" />
+
+	<link th:href="@{/css/company.css}" rel="stylesheet" />
+	
+</head>
+
+<body class="gray-bg">
+
+          <div class="container">  
+         <div class="box">  
+                              
+             <ul class="list-group float-right">
+                <li class="list-group-item list-group-item-info">
+                    <a href="/login" th:href="@{/login}">Sign in</a> |
+                    <a href="/register" th:href="@{/register}">Register Here</a>                     
+                </li>
+            </ul>
+            
+            <div class="body">                            
+            <p class ="text-center" th:text="${username}">
+                   
+            </p>            
+           
+                  
+                  
+        
+
+
+  <!-- jQuery-->
+  <script
+    src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script
+    src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous">
+  </script>
+
+  <!-- Bootstrap Validator plugin -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>   
+  
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>BUGS | Timeline</title>
+    <div th:replace="template :: head"></div>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <div th:replace="template :: bugs-nav"></div>
+    </div>
+    <div class="main-panel">
+        <!--Navbar-->
+        <div th:replace="template :: main-panel-header"></div>
+        <!-- End Navbar -->
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="offset-md-3 col-md-6">
+                    <div th:if="${timeline}" class="currentTimelines">
+                        <table class="table table-hover table-bordered">
+                            <tr>
+                                <th>Date for Attachment Application</th>
+                                <th>Dates(yyyy-mm-dd)</th>
+                            </tr>
+                            <tr>
+                                <th>Opening Date</th>
+                                <td class="currentDate" th:text="${timeline.from}"></td>
+                            </tr>
+                            <tr>
+                                <th>Closing Date</th>
+                                <td th:text="${timeline.to}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button class="btn btn-primary btn-sm timelineBtn">Set New Time lines</button>
+                    <button class="btn btn-primary btn-sm extendBtn">Extend the Time lines</button>
+                    <div class="timeline card-body">
+                        <div class="form">
+                            <form action="/bugs/timeline" method="post" class="form">
+                                <div class="form-group row fromRow">
+                                    <label >Enter Opening Dated</label>
+                                    <input type="text" class="form-control from" name="opening">
+                                </div>
+                                <div class="form-group row">
+                                    <label>Enter Closing Date</label>
+                                    <input type="text" class="form-control to" name="closing">
+                                </div>
+                                <div class="row pr-1">
+                                    <input type="submit" class="btn btn-primary" value="Set Dates">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:replace="template :: footer"></div>
+</body>
+</html>

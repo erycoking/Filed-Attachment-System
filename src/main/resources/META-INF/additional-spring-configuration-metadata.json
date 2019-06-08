@@ -1,0 +1,132 @@
+{"properties": [
+  {
+    "name": "staff.client.client-id",
+    "type": "java.lang.String",
+    "description": "A description for 'staff.client.client-id'"
+  },
+  {
+    "name": "staff.client.client-id",
+    "type": "java.lang.String",
+    "description": "A description for 'staff.client.client-id'"
+  },
+  {
+    "name": "student.client.client-id",
+    "type": "java.lang.String",
+    "description": "A description for 'student.client.client-id'"
+  },
+  {
+    "name": "staff.client.client-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'staff.client.client-secret'"
+  },
+  {
+    "name": "staff.client.authentication-scheme",
+    "type": "java.lang.String",
+    "description": "A description for 'staff.client.authentication-scheme'"
+  },
+  {
+    "name": "staff.client.scope",
+    "type": "java.lang.String",
+    "description": "A description for 'staff.client.scope'"
+  },
+  {
+    "name": "staff.client.access-token-uri",
+    "type": "java.lang.String",
+    "description": "A description for 'staff.client.access-token-uri'"
+  },
+  {
+    "name": "staff.client.user-authorization-uri",
+    "type": "java.lang.String",
+    "description": "A description for 'staff.client.user-authorization-uri'"
+  },
+  {
+    "name": "staff.resource.user-info-uri",
+    "type": "java.lang.String",
+    "description": "A description for 'staff.resource.user-info-uri'"
+  },
+  {
+    "name": "student.client.client-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'student.client.client-secret'"
+  },
+  {
+    "name": "student.client.scope",
+    "type": "java.lang.String",
+    "description": "A description for 'student.client.scope'"
+  },
+  {
+    "name": "student.client.authentication-scheme",
+    "type": "java.lang.String",
+    "description": "A description for 'student.client.authentication-scheme'"
+  },
+  {
+    "name": "student.client.access-token-uri",
+    "type": "java.lang.String",
+    "description": "A description for 'student.client.access-token-uri'"
+  },
+  {
+    "name": "student.client.user-authorization-uri",
+    "type": "java.lang.String",
+    "description": "A description for 'student.client.user-authorization-uri'"
+  },
+  {
+    "name": "student.resource.user-info-uri",
+    "type": "java.lang.String",
+    "description": "A description for 'student.resource.user-info-uri'"
+  },
+  {
+    "name": "spring.datasource.test-while-idle",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.test-while-idle'"
+  },
+  {
+    "name": "spring.datasource.validation-query",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.datasource.validation-query'"
+  },
+  {
+    "name": "spring.queries.users.query",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.queries.users.query'"
+  },
+  {
+    "name": "spring.queries.roles.query",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.queries.roles.query'"
+  },
+  {
+    "name": "support.email",
+    "type": "java.lang.String",
+    "description": "A description for 'support.email'"
+  },
+  {
+    "name": "spring.queries.student-users-query",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.queries.student-users-query'"
+  },
+  {
+    "name": "spring.queries.student-roles-query",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.queries.student-roles-query'"
+  },
+  {
+    "name": "spring.queries.staff-users-query",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.queries.staff-users-query'"
+  },
+  {
+    "name": "spring.queries.staff-roles-query",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.queries.staff-roles-query'"
+  },
+  {
+    "name": "spring.queries.company-users-query",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.queries.company-users-query'"
+  },
+  {
+    "name": "spring.queries.company-roles-query",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.queries.company-roles-query'"
+  }
+]}

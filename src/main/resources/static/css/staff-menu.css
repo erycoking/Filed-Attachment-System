@@ -1,0 +1,58 @@
+body{
+    background-color: #fafafa;
+    padding: 0;
+    margin:0;
+    min-height: 100%;
+
+}
+.navbar{
+    background-color: #4d810b;
+    color:white;
+    border-radius: 0;
+}
+
+.navbar ul li a{
+    color:white;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 2px;
+
+}
+.navbar ul li a:hover,.navbar ul li a:focus, .navbar ul li a:active{
+    color:#4d810b;
+    background: white;
+}
+.navbar-header button{
+    background-color: white;
+
+}
+.navbar-header .icon-bar{
+    background-color: #4d810b;
+}
+
+.panel-body{
+    text-align: center;
+}
+
+.body{
+    position: relative;
+}
+.footer{
+    font-weight: bold;
+    font-size: 14px;
+    width: 100%;
+
+}
+@media screen and (min-width: 992px) {
+    .footer{
+        position: absolute;
+        bottom: 0;
+        width: 84%;
+        margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 767px){
+    .navbar-nav li{
+        text-align: center;
+    }
+}

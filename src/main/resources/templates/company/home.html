@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="template :: head"></div>
+    <title>Company | Home </title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <div th:replace ="template :: company-nav"></div>
+    </div>
+    <div class="main-panel">
+        <!--Navbar-->
+        <div th:replace="template :: main-panel-header">
+        </div>
+        <!-- End Navbar -->
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Caption</h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="jumbotron ">Egerton University innovatively influences human development through holistic education and generation,
+                                    acquisition, preservation and dissemination of knowledge and skills, with emphasis on Agriculture and
+                                    related disciplines. The University provides equal opportunityin producing competitive and hands-on
+                                    graduates that contribute to national and globaldevelopment
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Notification</h4>
+                            </div>
+                            <div class="card-body">
+
+                                <p class="description text-center">
+                                    Number of pending applications for approval
+                                    <br> Approved applications
+                                    <br>Rejected applications
+                                </p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <nav>
+                    <p class="copyright text-center">
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+
+                    </p>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</div>
+
+
+<!--main js files-->
+<div th:template="template :: core-js-files">
+
+</div>
+</body>
+</html>
+

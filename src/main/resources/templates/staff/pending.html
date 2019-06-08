@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="template :: head"></div>
+    <title>staff | pending </title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <div th:replace="template :: staff-navs"></div>
+
+    </div>
+
+    <!--test-->
+    <div class="main-panel">
+        <!--Navbar-->
+        <div th:replace="template :: main-panel-header">
+
+        </div>
+        <!-- End Navbar -->
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-4 pl-1">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Select student to view his/her applications</h4>
+                            </div>
+                            <div class="card-body">
+                                <div th:if="${#lists.isEmpty(students)}">
+                                    <p class="card-text text-center">No applications available</p>
+                                </div>
+                                <div th:unless="${#lists.isEmpty(students)}">
+                                    <table class="table table-sm table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>Student Id</th>
+                                            <th>Full Name</th>
+                                            <th>Choose</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="e, i :${students}">
+                                            <td th:text="*{e.studentNumber}">#</td>
+                                            <td th:text="*{e.fullName}">#</td>
+                                            <td>
+                                                <a th:href="@{/staff/student/apps(studentNumber=${e.studentNumber})}"
+                                                   class="btn btn-sm btn-primary getStudent">view</a>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 pr-1">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Applications</h4>
+                            </div>
+                            <div class="card-body">
+                                <div>
+                                    <p class="card-text text-center">Select student to view his or her application</p>
+                                </div>
+                                <div>
+                                    <table class="table table-sm table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Company</th>
+                                            <th>Region</th>
+                                            <th>Town</th>
+                                            <th>Approval</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody class="showApps">
+                                        <!--<tr th:each="e, i :${allApps}">
+                                            <td th:text="*{i.index+1}">#</td>
+                                            <td th:text="*{e.companyApplied.company.companyName}"></td>
+                                            <td th:text="*{e.companyApplied.location}">#</td>
+                                            <td th:text="${e.companyApproval}">#</td>
+                                            <td>
+                                                <a th:href="@{/staff/approve/(appId=${e.applicationId})}" class="btn btn-sm btn-primary" name="appId"
+                                                        th:value="*{e.applicationId}">Approve
+                                                </a>
+                                                |
+                                                <a th:href="@{/staff/disapprove/(appId=${e.applicationId})}" class="btn btn-sm btn-primary" name="appId"
+                                                        th:value="*{e.applicationId}">Disapprove
+                                                </a>
+                                            </td>
+                                        </tr>-->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <nav>
+                    <p class="copyright text-center">
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+
+                    </p>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</div>
+
+<form class="myform" id="myform" th:action="@{/staff/disapprove}" method="post">
+    <div class="modal fade" id="diapprovalModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Give Reason for Disapproval</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="md-form">
+                        <input type="hidden" name="appId" value="" id="appId"/>
+                        <label for="reason">Reason for disapproval</label>
+                        <textarea th:type="text" placeholder="state reason" name="reason" id="reason" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<!--main js files-->
+<div th:replace="template :: footer">
+
+</div>
+</body>
+</html>
+

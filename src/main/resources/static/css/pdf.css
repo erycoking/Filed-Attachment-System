@@ -1,0 +1,77 @@
+
+body {
+	margin: 0 auto;
+}
+
+h1,h2,h3,h4,h5{
+	margin: 0;
+	padding: 0;
+}
+/*override bootstrap*/
+img{
+	float: none;
+	align-items: center;
+	text-overflow: clip;
+
+}
+.header-content{
+	text-wrap: none;
+	line-height: 1.8em;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.header-main{
+	white-space: pre;
+	margin-bottom: 0.625em;
+	font-size: 1.4em;
+	font-weight: bolder;
+}
+
+.header-sub-main{
+	font-size: 1em;
+	font-weight: bold;
+}
+.address{
+	position: relative;
+	align-self: flex-end;
+	margin-top: 2em;
+	font-size: 0.75em;
+
+}
+.postal{
+	position: absolute;
+	right: 0;
+}
+.main{
+	margin-top: 2.45em;
+	font-size: 0.75em;
+	/*width: 80%;*/
+}
+.main .salutation{
+
+}
+
+.main .ref{
+	font-size: 1em;
+	font-weight: 600;
+	text-transform: uppercase;
+	text-decoration: underline;
+	word-spacing: 1.0em;
+}
+.footer{
+	display: block; text-align: center;
+	position: running(footer);
+	border-top: 3px solid #782B1A
+
+}
+
+@page {  size: 8.5in 11in;
+	margin: 1in;}
+
+@page  {
+	@bottom-center {
+		content: element(footer) }
+}
+
+

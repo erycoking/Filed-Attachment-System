@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Company | Applications</title>
+
+    <div th:replace="template :: head"></div>
+
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <div th:replace="template :: company-nav"></div>
+    </div>
+    <div class="main-panel">
+        <!--Navbar-->
+        <div th:replace="template :: main-panel-header">
+        </div>
+        <!-- End Navbar -->
+        <div class="container-fluid">
+            <div class="row justify-content-center" style="margin-top: 3rem">
+                <div class="card">
+                    <div class="card-body">
+                        <div th:if="${#lists.isEmpty(apps.content)}">
+                            <p>No Applications Available</p>
+                        </div>
+                        <div th:unless="${#lists.isEmpty(apps.content)}">
+                            <table class="table table-sm table-hover">
+                                <thead class="thead-dark">
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Campus</th>
+                                    <th>Year of study</th>
+                                    <th>Email</th>
+                                    <th>Department</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="e, i :${apps.content}">
+                                    <td th:text="${i.index}"></td>
+                                    <td th:text="${e.studentApplication.fullName}"></td>
+                                    <td th:text="${e.studentApplication.campusName}"></td>
+                                    <td th:text="${e.studentApplication.currentYear}"></td>
+                                    <td th:text="${e.studentApplication.email}"></td>
+                                    <td th:text="${e.studentApplication.department.departmentName}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

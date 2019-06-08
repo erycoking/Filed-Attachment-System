@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="template :: head"></div>
+    <title>Aplications</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <div th:replace ="template :: staff-navs"></div>
+
+    </div>
+
+
+    <div class="main-panel">
+        <!--Navbar-->
+        <div th:replace="template :: main-panel-header">
+
+        </div>
+        <!-- End Navbar -->
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Disapproved Applications</h4>
+                            </div>
+                            <div class="card-body">
+                                <div th:if="${#lists.isEmpty(allApps)}">
+                                    <p class="card-text text-center">No applications available</p>
+                                </div>
+                                <div th:unless="${#lists.isEmpty(allApps)}">
+                                    <table class="table table-sm table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th >No</th>
+                                            <th >Student Id</th>
+                                            <th >Full Name</th>
+                                            <th >Company</th>
+                                            <th >Town</th>
+                                            <th >Approval</th>
+                                            <th >Reason</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="e, i :${allApps}">
+                                            <td th:text="*{i.index+1}">#</td>
+                                            <td th:text="*{e.studentApplication.studentNumber}">#</td>
+                                            <td th:text="*{e.studentApplication.fullName}">#</td>
+                                            <td th:text="*{e.companyApplied.company.companyName}"></td>
+                                            <td th:text="*{e.companyApplied.location}">#</td>
+                                            <td th:text="${e.coordinatorApproval}">#</td>
+                                            <td th:text="${e.coordinatorFeedback}">#</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <nav>
+                    <p class="copyright text-center">
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+
+                    </p>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</div>
+
+
+<!--main js files-->
+<div th:template="template :: core-js-files">
+
+</div>
+</body>
+</html>

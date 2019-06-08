@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <div th:replace="template :: head"></div>
+    <title>Bugs | home</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <div th:replace="template :: bugs-nav"></div>
+    </div>
+    <div class="main-panel">
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+            <div class=" container-fluid  ">
+                <a class="navbar-brand" href="#"> Welcome <label th:text="${username}"></label></a>
+                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="dropdown">
+                                <span class="d-lg-none" > Welcome <label th:text="${username}"></label> </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout" th:href="@{/logout}">
+                                <span class="no-icon">Log out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title text-center">Welcome to Board Of Undergraduate Studies Attachment management system</h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">This system enables you to view all the students who have registered in this system and whether
+                                    they have applied for attachment or not, the staff who have registered in the system and if the have
+                                    approved anyone for attachment. Also one is able to view all the applications that have been made.
+                                    One can also be able to view which companies are registered to use the system. Enjoy as you interact with
+                                    the system. For any queries contact the ICT department.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <nav>
+                    <p class="copyright text-center">
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+
+                    </p>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</div>
+
+
+<!--main js files-->
+<div th:template="template :: core-js-files">
+
+</div>
+</body>
+</html>

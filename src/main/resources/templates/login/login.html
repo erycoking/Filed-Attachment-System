@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>BUGS | Sign In</title>
+    <div th:replace="template:: head"></div>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+</head>
+
+<body>
+<div class="container login">
+    <div class="row">
+        <div class="card col-md-6 offset-md-3 main-panel" style="margin-top: 5rem">
+                <div class="card-body">
+                    <div class="row justify-content-end">
+                        <a href="/student/register" class="btn btn-info btn-sm" role="button" th:href="@{/student/register}">Register
+                            Here</a>
+                    </div>
+                    <div class="row justify-content-center">
+                        <h3 class="card-title text-uppercase">Welcome to BUGS</h3>
+                        <p class="text-center">Enter your username and password below to Sign in</p>
+
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="/login" th:action="@{/login}" method="POST">
+                        <div align="center" th:if="${param.error}">
+                            <p class="card-text text-danger">
+                                Email or Password invalid, please try again or register
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username" placeholder="Username"
+                                   autocomplete="false">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <label class="col-md-3">Password</label>
+                                <label class="col-md-4 ml-auto">
+                                    <a href="/password/resetPassword" th:href="@{/password/resetPassword}">Forgot
+                                        Password</a>
+                                </label>
+                            </div>
+                            <input type="password" class="form-control" name="password" placeholder="Password"
+                                   autocomplete="false">
+                        </div>
+                        <div class="row">
+                            <div class="offset-md-3 col-md-6">
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </div>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="template :: footer"></div>
+</body>
+</html>

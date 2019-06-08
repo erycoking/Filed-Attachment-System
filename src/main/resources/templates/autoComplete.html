@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--Main home page for the BUGS  -->
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      <title>Bugs E-portal Login page</title>
+        <meta charset="utf-8" />
+      <div th:replace="template :: head"></div>
+             
+<body>
+<div>
+<label >Company Name:</label><input type="text" id="name"/>
+<label >Company Id:</label><input type="text" id="id"/><br />
+<label >Company location:</label><input type="text" id="location"/>
+<label >Company address:</label><input type="text" id="address"/><br />
+<label >Company email:</label><input type="text" id="email"/>
+</div>
+  <!-- <script th:src="@{/js/autoComplete.js}"  > </script> -->
+  <<div th:replace="template :: footer"></div>
+  <script type="text/javascript">
+         $(document).ready(function () {  
+        	  var term;
+        		 $(function() {        			         				    
+        			   $("#name").autocomplete(
+        			       {
+        			           source : function(request, response) {
+        			               $.ajax({
+        			                   url : "/company",
+        			                   delay: 500,
+        			                   dataType : "json",
+        			                   data : {
+        			                       term : request.term,
+        			                      
+        			                   },
+        			                   success : function(data) {
+        			                       response($.map(data, function(item) {        			                    	   
+        			                    	   //town=new Object(data.town);
+        			                    	   return {
+        			                        
+        			                               label : item.companyName,
+        			                               value : item.companyId,   
+        			                               
+        			                              
+        			                               
+        			                           }
+        			                       }));
+        			                   }
+        			               });
+        			           },
+        			           minLength : 0,
+        			           focus: function(event, ui) {
+                                   $('#name').val(ui.item.companyName);
+                                   return false;
+                               },
+
+                               select: function (event, ui) {                
+                                   event.preventDefault();
+                                   $(this).val(ui.item.label)
+                                   $('#id').val(ui.item.value)
+                                   
+                                  
+                               }, 
+        			       });
+        			});
+        		
+        		 $(function() {     
+        			 
+        			 
+      			   $("#location").autocomplete({
+      			           source : function(request, response) {
+      			               $.ajax({
+      			                   url : "/company/"+$("#id").val(),
+      			                   delay: 500,
+      			                   dataType : "json",
+      			                   data : {
+      			                       term : request.term,
+      			                      
+      			                   },
+      			                   success : function(data) {
+      			                       response($.map(data, function(item) {        			                    	   
+      			                    	   
+      			                    	   return {
+      			                        
+      			                               label : item.location,
+      			                               value : item.address, 
+      			                               id :item.email
+      			                               
+      			                              
+      			                               
+      			                           }
+      			                       }));
+      			                   }
+      			               });
+      			           },
+      			           minLength : 0,
+      			           focus: function(event, ui) {
+                                 $('#location').val(ui.item.label);
+                                 return false;
+                             },
+
+                             select: function (event, ui) {                
+                                 event.preventDefault();
+                                 $(this).val(ui.item.label)
+                                 $('#address').val(ui.item.value)
+                                 $('#email').val(ui.item.id)
+                                
+                             }, 
+      			       });
+      			});
+
+        		
+        	 });  
+           
+     
+        
+        
+        
+        </script>
+</body>
+</html>

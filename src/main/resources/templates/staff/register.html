@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Staff | Register</title>
+    <div th:replace="template :: head"></div>
+
+</head>
+<body>
+<div class="container">
+    <div class="row" style="margin-top: 3rem;">
+        <div class="card col-md-6 offset-md-3">
+            <div class="card-body">
+                <div class="row justify-content-end">
+                    <a href="/register" class="btn btn-primary btn-sm" th:href="@{/register}">Back </a>
+                </div>
+                <div class="row justify-content-center">
+                    <p class="card-title">Please Provide your details to register as Staff</p>
+                </div>
+                <form action="/staff/register" th:action="@{/staff/register}" th:object="${staff}" method="post">
+
+
+                    <div class="form-group">
+                        <div th:if="${#fields.hasErrors('payrollId')}" th:errors="*{payrollId}"
+                             class="alert alert-danger">
+                        </div>
+
+                        <label for="payrollNo">Payroll number</label>
+                        <input type="text" placeholder="Payroll no." class="form-control" th:field="*{payrollId}">
+                    </div>
+
+                    <div class="form-group">
+                        <div th:if="${#fields.hasErrors('fullName')}"
+                             th:errors="*{fullName}"
+                             class="alert alert-danger">
+                        </div>
+
+                        <label for="name">Name</label>
+                        <input type="text" placeholder="Name" class="form-control" th:field="*{fullName}">
+                    </div>
+
+
+                    <div class="from-group">
+                        <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                             class="alert alert-danger">
+                        </div>
+
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="Email" class="form-control" th:field="*{email}">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="faculty">Faculty</label>
+                        <select type="text" class="form-control fac" name="faculty" required>
+                            <option th:each=" fac, i :${faculty}" th:selected="${i==1}"
+                                    th:value="${fac.id}" th:text="${fac.facultyName}" >
+                        </select>
+
+                        <div th:if="${#fields.hasErrors('faculty')}"
+                             th:errors="*{faculty}"
+                             class="validation-message alert alert-danger">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Department">Department</label>
+                        <select type="text" class="form-control updateDepartmentOptions" th:field="*{department}" required>
+
+                        </select>
+
+                        <div th:if="${#fields.hasErrors('department')}"
+                             th:errors="*{department}"
+                             class="validation-message alert alert-danger">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <select class="form-control" th:field="*{gender}">
+                            <option th:each="gender : ${T(com.egerton.bugs.Model.Enumerated.Gender).values()}"
+                                    th:value="${gender.getGender()}" th:text="${gender.getGender()}">
+                            </option>
+
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="offset-md-2 col-md-8">
+                            <button type="submit" class="btn btn-primary form-control  ">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div th:replace="template :: footer"></div>
+</body>
+</html>

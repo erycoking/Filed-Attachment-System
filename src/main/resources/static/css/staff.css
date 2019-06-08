@@ -1,0 +1,48 @@
+*{
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+
+.mdl-layout__content{
+	display:block;
+}
+.mdl-layout__header-row{
+	background-color: #87a938;
+}
+
+.mdl-layout-title{
+	margin-right: 2%;
+	
+}
+
+.mdl-data-table{
+	margin-top: 3%;
+    margin-left: 30%;
+	min-width: 100%;
+	flex-grow: 1;
+}
+
+.card-body{
+    justify-content: center;
+}
+
+.footer-nav .btn-group{
+    margin-top: 3%;
+    margin-left: 40%;
+    width: 100%;
+}
+
+.staff-footer{
+    width: 100%;
+    background-color: #080808;
+    color : snow;
+}
+
+.staff-footer p{
+    margin-top: 10px;
+}
+
+.staff-excerpt{
+    margin-left: 15%;
+}

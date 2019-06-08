@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Application letter pdf</title>
+    <link rel="stylesheet" media="all" type="text/css" th:href="@{bootstrap.min.css}">
+    <link rel="stylesheet" media="all" type="text/css" th:href="@{pdf.css}">
+
+</head>
+
+<body>
+<div class="container ">
+
+    <div class="row header-content">
+        <div class="header-main">EGERTON <img class="logo" th:src="@{logo.png}" alt="logo"> UNIVERSITY</div>
+        <div class="header-sub-main">
+            BOARD OF UNDERGRADUATE STUDIES
+            <br> AND <br>
+            FIELD ATTACHMENT PROGRAMMES
+        </div>
+    </div>
+
+    <!-- addresses -->
+    <div class=" row address ">
+        <div class="left-address">
+            <strong>Tel :</strong>
+            051-2217781;2217891/92 <strong style="margin-left: 0.5em;"> Extn </strong>:3577,<br>
+            <span style="margin-left: 2.4em;"> 0713888208 (Mobile No.)</span><br>
+            <strong>Our Ref:</strong>
+            <span th:text="${ref}">EU/AA/BUGS/ACA/18</span>
+        </div>
+
+        <div  class="right-address">
+            <address >
+                <strong>P.O Box</strong> 536-20115,<br>
+                Egerton,Kenya <br>
+                <strong>Email</strong>: bugs@egerton.ac.ke<br>
+                <strong>Date:</strong><span th:text="${generatedDate}">Date generated</span><br>
+            </address>
+        </div>
+    </div>
+
+
+    <div class="row text-wrapper " >
+
+        <div class="main">
+            <p class="salutation">Dear Sir/Madam,</p>
+            <p class="ref">RE: FIELD Attachment posting letter</p>
+
+            <p class="lead-text">
+                Egerton University students are scheduled to conduct their Field/Industrial attachment from <label
+                    th:text="${startMonth}">{Insert Month}</label> to<label th:text="${endMonth}">{Insert month}</label>,<label
+                    th:text="${year}">{insert year}</label>.
+                We would appreciate if you could allow the following students to do their attachment in your
+                organisation.
+            <p>
+                <!-- Insert table with field -->
+                <!-- No,Reg No,name,Degree/Diploma Program -->
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Reg No</th>
+                    <th>Name</th>
+                    <th>Degree/Diploma Program</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td th:text="${student.studentNumber}"></td>
+                    <td th:text="${student.fullName}"></td>
+                    <td th:text="${student.department.departmentName}"></td>
+
+                </tr>
+                </tbody>
+            </table>
+            </p>
+            <br>
+            <p>
+                Field/Industrial attachment is session when students go out to the market-place to get exposed and
+                familiarise themselves
+                with various working environments.It is a time when students are expected to acquire practical training
+                skills and to have understanding of the
+                environmental,economic and social influences on management and work performance.
+            </p>
+            <p>
+                While at the organisation/institution,the student will be under your direct control and will be expected
+                to do the following.
+                <!-- your list -->
+                <br>
+            <ol>
+                <li>
+                    To understand the history,vision and mission of the respective institution and organisation
+                </li>
+                <li>
+                    To understand the short and long term objectives and policies of the respective institution and
+                    organisation
+                </li>
+                <li>
+                    To appreciate the challenges faced by the respective institution/organisation and how their
+                    challenges are overcome.
+                </li>
+                <li>
+                    To participate actively in the day to day activities of the respective institution/organisation.
+                </li>
+                <li>
+                    To use personal initiative to contribute positively to the respective Institution/organisation.
+                </li>
+
+            </ol>
+
+            </p>
+
+            <p>
+                Egerton University staff will visit the students to assess their performance and any information about
+                their
+                conduct and performance should be passed to them for follow -up
+            </p>
+            <p class="regards">
+                Yours faithfully,
+            </p>
+                <p>
+                <strong>
+                    <label th:text="${director}">Director Name</label> <br/>
+                    Director ,Board of Undergraduate Studies/Field Attachment Programmes <br/>
+                    For : Vice-Chancellor
+                </strong>
+            </p>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div>
+        Transforming Lives through Quality Education <br/>
+        Egerton University is ISO 9001:2008 certified
+    </div>
+
+</footer>
+
+</body>
+</html>

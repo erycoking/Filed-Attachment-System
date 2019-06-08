@@ -1,0 +1,95 @@
+# ===============================
+# = Server Cofiguration
+# ===============================
+server:
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+
+## ===============================
+## = Debugging
+## ===============================
+#logging:
+#  level:
+#    org:
+#      springframework:
+#        security: DEBUG
+
+# ===============================
+# = DATA SOURCE
+# ===============================
+spring:
+  datasource:
+    username: erycoking
+    password: king
+
+    url: jdbc:mysql://localhost:3306/bugs_final?autoReconnect=true&useSSL=false
+    testWhileIdle: true
+    validationQuery: SELECT 1
+
+# ===============================
+# = JPA / HIBERNATE
+# ===============================
+  jpa:
+    show_sql: true
+    format_sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        enable_lazy_load_no_trans: true
+
+# ===============================
+# = Thymeleaf configurations
+# ===============================
+  thymeleaf:
+      cache: false
+      mode: LEGACYHTML5
+      suffix: .html
+      prefix: classpath:/templates/
+      encoding: UTF-8
+
+      
+
+
+#============================
+# FAKE  SMTP EMAIL configuration
+#============================
+ # mail:
+  #  host: localhost
+   # username: noreply@domain.com
+    #password:
+    #port: 25
+    #properties:
+     # mail:
+      #  smtp:
+       #   auth: false
+        #starttls:
+         # enable: true
+#support:
+ # email: noreply@domain.com
+
+## ===============================
+## = MAIL configurations
+## ===============================
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username:
+    password:
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: false
+  mvc:
+    favicon:
+      enabled: false

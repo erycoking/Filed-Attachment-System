@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <div th:replace="template :: head"></div>
+    <title>Bugs | Staff</title>
+</head>
+<body>
+<div class="wrapper">
+    <div class="sidebar">
+        <div th:replace="template :: bugs-nav"></div>
+    </div>
+    <div class="main-panel">
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+            <div class=" container-fluid  ">
+                <a class="navbar-brand" href="#"> Welcome <label th:text="${username}"></label></a>
+                <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                        aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                    <span class="navbar-toggler-bar burger-lines"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="dropdown">
+                                <span class="d-lg-none"> Welcome <label th:text="${username}"></label> </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout" th:href="@{/logout}">
+                                <span class="no-icon">Log out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navbar -->
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title text-center">Staff</h4>
+                            </div>
+                            <div class="card-body">
+                                <div th:if="${#lists.isEmpty(staff.content)}">
+                                    <p class="text-center">No students available</p>
+                                </div>
+                                <div th:unless="${#lists.isEmpty(staff.content)}">
+                                    <form th:action="@{/bugs/staff}" method="get">
+                                        <div class="form-group row">
+                                            <label for="searchTerm" class="col-sm-2 col-form-label">Filter By</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control-sm" name="searchTerm" id="searchTerm">
+                                                    <option value="PayrollNo">Payroll No.</option>
+                                                    <option value="Name">Name</option>
+                                                    <option value="Faculty">Faculty</option>
+                                                    <option value="Department">Department</option>
+                                                    <option value="Gender">Gender</option>
+                                                </select>
+                                                <input type="text" class="form-control-sm" placeholder="Filter value"
+                                                       name="searchValue" id="searchValue">
+                                                <input type="submit" class="btn btn-primary btn-sm" value="Filter">
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <div id="student_display" style="margin-top: 1rem">
+                                        <div>
+                                            <table class="table table-sm table-hover">
+                                                <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Faculty</th>
+                                                    <th>Department</th>
+                                                    <th>Gender</th>
+                                                    <th>Email</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr th:each="e, i :${staff}">
+                                                    <td th:text="${e.fullName}"></td>
+                                                    <td th:text="${e.faculty.facultyName}"></td>
+                                                    <td th:text="${e.department.departmentName}"></td>
+                                                    <td th:text="${e.gender}"></td>
+                                                    <td th:text="${e.email}"></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <ul class="nav nav-pills row justify-content-center">
+                                                <li class="nav-item"
+                                                    th:each="i :${#numbers.sequence(0, staff.totalPages - 1)}">
+                                                    <a th:href="@{/bugs/staff(currentPage=${i})}" th:text="${i}"
+                                                       class="nav-link"
+                                                       th:classappend="${currentPage}==${i}?'active':''">#</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container">
+                <nav>
+                    <p class="copyright text-center">
+                        ©
+                        <script>
+                            document.write(new Date().getFullYear())
+                        </script>
+
+                    </p>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+</div>
+
+
+<!--main js files-->
+<div th:template="template :: core-js-files">
+
+</div>
+</body>
+</html>
+

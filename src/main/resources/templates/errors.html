@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <div th:replace="template :: head"></div>
+</head>
+<body>
+<div class="container">
+    <div class="wrapper card-body">
+        <div class="jumbotron">
+            <h5 class="card-title"><div th:text="${errorMessage}"></div> <br>Contact administrator.</h5>
+            <a href="" class="btn btn-primary back">Go Back</a>
+        </div>
+    </div>
+</div>
+<div th:replace="template :: footer"></div>
+</body>
+</html>

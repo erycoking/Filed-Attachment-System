@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Student | Register</title>
+    <div th:replace="template :: head"></div>
+
+</head>
+<body>
+<div class="container">
+    <div class="row" style="margin-top: 3rem;">
+        <div class="card offset-md-2 col-md-8">
+            <div class="card-body">
+                <div class="row justify-content-end">
+                    <a href="/register" class="btn btn-primary btn-sm" th:href="@{/login}">Back </a>
+                </div>
+                <div class="row justify-content-center" style="margin-bottom: 2%">
+                    <h3 class="text-center">Provide your student details here</h3>
+                </div>
+                <form action="/student/register" autocomplete="off" th:action="@{/student/register}"
+                      method="post" th:object="${student}">
+
+                    <div class="form-group">
+                        <label>Registration Number</label>
+                        <input type="text" placeholder="Reg. no." maxlength="18"
+                               class="form-control" th:field="*{studentNumber}" required/>
+
+                        <div th:if="${#fields.hasErrors('studentNumber')}"
+                             th:errors="*{studentNumber}"
+                             class="validation-message alert alert-danger">
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Name" maxlength="40"
+                                   class="form-control" th:field="*{fullName}" required/>
+
+                            <div th:if="${#fields.hasErrors('fullName')}"
+                            th:errors="*{fullName}"
+                            class="validation-message alert alert-danger">
+                        </div>
+
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label>Gender</label>
+                            <select class="form-control" th:field="*{gender}">
+                                <option th:each="gender :
+                                ${T(com.egerton.bugs.Model.Enumerated.Gender).values()}"
+                                        th:value="${gender.getGender()}" th:text="${gender.getGender()}">
+                                </option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="email">Email</label>
+                            <input type="text" placeholder="Email" maxlength="60" class="form-control" th:field="*{email}" required/>
+
+                            <div th:if="${#fields.hasErrors('email')}"
+                                 th:errors="*{email}"
+                                 class="validation-message alert alert-danger">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="text" placeholder="Phone number" maxlength="14" class="form-control"
+                                   th:field="*{cellPhoneNumber}" required/>
+
+                            <div th:if="${#fields.hasErrors('cellPhoneNumber')}"
+                                 th:errors="*{cellPhoneNumber}"
+                                 class="validation-message alert alert-danger">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="faculty">Faculty</label>
+                        <select type="text" class="form-control fac" name="faculty" required>
+                            <option th:each=" fac, i :${faculty}" th:selected="${i==1}"
+                                    th:value="${fac.id}" th:text="${fac.facultyName}" >
+                        </select>
+
+                        <div th:if="${#fields.hasErrors('faculty')}"
+                             th:errors="*{faculty}"
+                             class="validation-message alert alert-danger">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Department">Department</label>
+                        <select type="text" class="form-control updateDepartmentOptions" th:field="*{department}" required>
+
+                        </select>
+
+                        <div th:if="${#fields.hasErrors('department')}"
+                             th:errors="*{department}"
+                             class="validation-message alert alert-danger">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="campus">Campus</label>
+                            <select class="form-control" th:field="*{campusName}">
+                                <option th:each="campus :
+                                ${T(com.egerton.bugs.Model.Enumerated.Campus).values()}"
+                                        th:value="${campus}" th:text="${campus.getCampus()}"></option>
+                            </select>
+
+                            <div th:if="${#fields.hasErrors('campusName')}"
+                                 th:errors="*{campusName}"
+                                 class="validation-message alert alert-danger">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="name">Year of Study</label>
+
+                            <select class="form-control" th:field="*{currentYear}">
+                                <option th:each="year :${T(com.egerton.bugs.Model.Enumerated.Year).values()}"
+                                        th:value="${year.getYear()}" th:text="${year.getYear()}"></option>
+                            </select>
+
+                            <div th:if="${#fields.hasErrors('currentYear')}"
+                                 th:errors="*{currentYear}"
+                                 class="validation-message alert alert-danger">
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-group has-feedback pl-1">
+                            <label for="password">Password</label>
+                            <input name="password" type="password" id="password"
+                                   placeholder="Password" class="form-control" required/>
+                        </div>
+                        <div class="password" role="alert"></div>
+
+                        <div class="form-group  has-feedback pl-1">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control"
+                                   placeholder="Confirm Password" name="ConfirmPassword"     id="ConfirmPassword"/>
+                        </div>
+
+                        <div class="confirmPassword" role="alert"></div>
+                    </div>
+                    <div class="row">
+                        <div class="offset-md-2 col-md-8">
+                            <button type="submit" class="btn btn-primary form-control">Register</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div th:replace="template :: footer"></div>
+<script type="text/javascript" src="/js/pwstrength.js" th:src="@{/js/pwstrength.js}"></script>
+
+</body>
+</html>

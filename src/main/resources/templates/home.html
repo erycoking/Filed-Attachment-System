@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row" style="margin-top: 10%">
+        <div class="card col-md-6 offset-md-3 home-main-panel">
+            <div class="card-body">
+                <div class="row justify-content-end">
+                    <a href="/login" class="btn btn-primary btn-sm" th:href="@{/login}">Login Here</a>
+                </div>
+                <div class="row justify-content-center">
+                    <p >Please select your respective category to register</p>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                        <a href="/student/register" th:href="@{/student/register}" style="margin-right: 4px;"><span
+                                class="btn btn-primary btn-sm" >Student</span></a>
+
+                        <a href="/company/register" th:href="@{/company/register}"><span
+                                class="btn btn-primary btn-sm" >Company</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="template :: footer"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
